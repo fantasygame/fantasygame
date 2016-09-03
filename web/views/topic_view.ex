@@ -1,5 +1,5 @@
-defmodule PhoenixTrello.TopicView do
-  use PhoenixTrello.Web, :view
+defmodule Fantasygame.TopicView do
+  use Fantasygame.Web, :view
 
   def render("index.json", %{owned_topics: owned_topics}) do
     %{owned_topics: owned_topics}
