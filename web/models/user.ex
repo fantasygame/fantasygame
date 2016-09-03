@@ -1,6 +1,8 @@
 defmodule Fantasygame.User do
   use Fantasygame.Web, :model
 
+  alias Fantasygame.Topic
+
   @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
 
   schema "users" do
@@ -9,6 +11,8 @@ defmodule Fantasygame.User do
     field :email, :string
     field :encrypted_password, :string
     field :password, :string, virtual: true
+
+    has_many :owned_topics, Topic
 
     timestamps
   end
