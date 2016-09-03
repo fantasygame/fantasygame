@@ -16,7 +16,7 @@ defmodule Fantasygame.Router do
       delete "/sessions", SessionController, :delete
       get "/current_user", CurrentUserController, :show
 
-      resources "topics", TopicsController, only: [:index, :show, :create]
+      resources "topics", TopicController, only: [:index, :show, :create]
     end
   end
 
