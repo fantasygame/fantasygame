@@ -23,4 +23,8 @@ defmodule Fantasygame.Topic do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  def preload_all(query) do
+    from b in query, preload: [:user]
+  end
 end
