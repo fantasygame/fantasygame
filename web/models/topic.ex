@@ -1,6 +1,8 @@
 defmodule Fantasygame.Topic do
   use Fantasygame.Web, :model
 
+  @derive {Poison.Encoder, only: [:id, :title, :user]}
+
   schema "topics" do
     field :title, :string
     belongs_to :user, Fantasygame.User
@@ -8,7 +10,7 @@ defmodule Fantasygame.Topic do
     timestamps
   end
 
-  @required_fields ~w(title)
+  @required_fields ~w(title name_id)
   @optional_fields ~w()
 
   @doc """
