@@ -1,11 +1,14 @@
 defmodule Fantasygame.Topic do
   use Fantasygame.Web, :model
 
+  alias Fantasygame.{Post, User}
+
   @derive {Poison.Encoder, only: [:id, :title, :user]}
 
   schema "topics" do
     field :title, :string
-    belongs_to :user, Fantasygame.User
+    belongs_to :user, User
+    has_many :posts, Post
 
     timestamps
   end
