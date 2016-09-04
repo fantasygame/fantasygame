@@ -3,7 +3,7 @@ defmodule Fantasygame.Topic do
 
   alias Fantasygame.{Post, User, UserTopic}
 
-  @derive {Poison.Encoder, only: [:id, :title, :user, :posts]}
+  @derive {Poison.Encoder, only: [:id, :title]}
 
   schema "topics" do
     field :title, :string

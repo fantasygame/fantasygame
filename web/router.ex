@@ -17,6 +17,7 @@ defmodule Fantasygame.Router do
       get "/current_user", CurrentUserController, :show
 
       resources "topics", TopicController, only: [:index, :show, :create]
+      resources "posts", PostController, only: [:index, :show, :create]
     end
   end
 
