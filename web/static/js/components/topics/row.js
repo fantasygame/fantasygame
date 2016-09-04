@@ -3,7 +3,7 @@ import { push }           from 'react-router-redux';
 
 export default class TopicRow extends React.Component {
   _handleClick() {
-    console.log(`Clicker ${this.props.id}`);
+    console.log(`Clicked ${this.props.id}`);
   }
 
   render() {
