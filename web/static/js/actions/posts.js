@@ -3,16 +3,15 @@ import { push }               from 'react-router-redux';
 import { httpGet, httpPost }  from '../utils';
 
 const Actions = {
-  fetchTopics: () => {
+  fetchPosts: () => {
     return dispatch => {
-      dispatch({ type: Constants.TOPICS_FETCHING });
+      dispatch({ type: Constants.POSTS_FETCHING });
 
-      httpGet('/api/v1/topics')
+      httpGet('/api/v1/posts')
       .then((data) => {
         dispatch({
-          type: Constants.TOPICS_RECEIVED,
-          ownedTopics: data.owned_topics,
-          invitedTopics: data.invited_topics,
+          type: Constants.POSTS_RECEIVED,
+          posts: data.posts
         });
       });
     };
