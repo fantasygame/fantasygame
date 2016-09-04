@@ -3,7 +3,7 @@ defmodule Fantasygame.Topic do
 
   alias Fantasygame.{Post, User}
 
-  @derive {Poison.Encoder, only: [:id, :title, :user]}
+  @derive {Poison.Encoder, only: [:id, :title, :user, :posts]}
 
   schema "topics" do
     field :title, :string
@@ -28,6 +28,7 @@ defmodule Fantasygame.Topic do
   end
 
   def preload_all(query) do
-    from b in query, preload: [:user]
+    posts_query = from p in Post, order_by: [desc: p.inserted_at], preload: :user
+    from b in query, preload: [:user, posts: ^posts_query]
   end
 end

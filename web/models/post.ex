@@ -1,6 +1,8 @@
 defmodule Fantasygame.Post do
   use Fantasygame.Web, :model
 
+  @derive {Poison.Encoder, only: [:id, :text, :user, :inserted_at, :updated_at]}
+
   schema "posts" do
     field :text, :string
     belongs_to :user, Fantasygame.User
